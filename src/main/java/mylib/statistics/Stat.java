@@ -39,7 +39,7 @@ public class Stat {
         List<Integer> dataCopy = new ArrayList<>(data);
         Collections.sort(dataCopy);
         int rank = (int) Math.ceil(dataCopy.size() * (percentile / 100.0));
-        return (double) dataCopy.get(rank);
+        return (double) dataCopy.get(rank - 1); // adding - 1 will turn the rank to 0-based index
     }
     // to be implemented later:
 //    public static double topKFrequentCountSum(List<Integer> data, int k) {}

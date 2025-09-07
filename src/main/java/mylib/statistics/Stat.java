@@ -33,7 +33,7 @@ public class Stat {
         for (int i = 0; i < data.size(); i++) {
             sumOfSquaredDeviations += Math.pow(data.get(i) -  meanValue, 2);
         }
-        return Math.sqrt(sumOfSquaredDeviations);
+        return Math.sqrt(sumOfSquaredDeviations / data.size());
     }
     public static double percentileNearestRank(List<Integer> data, int percentile) {
         List<Integer> dataCopy = new ArrayList<>(data);

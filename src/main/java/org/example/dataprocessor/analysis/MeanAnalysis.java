@@ -1,17 +1,14 @@
 package org.example.dataprocessor.analysis;
+import mylib.statistics.Stat;
 import java.util.List;
 
-import static java.lang.Double.NaN;
 
 public class MeanAnalysis implements IAnalysisType {
+    @Override
     public double analyze(List<Integer> data) {
-        if (data.isEmpty()){
-            return NaN;
+        if (data == null || data.isEmpty()){
+            return Double.NaN;
         }
-        int sum = 0;
-        for (int i = 0; i < data.size(); i++) {
-            sum += data.get(i);
-        }
-        return (double) sum / data.size();
+        return Stat.mean(data);
     }
 }

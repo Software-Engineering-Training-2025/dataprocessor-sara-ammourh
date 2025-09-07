@@ -1,8 +1,11 @@
 package org.example.dataprocessor;
 
+import org.example.dataprocessor.analysis.AnalysisFactory;
+import org.example.dataprocessor.cleaning.CleaningFactory;
 import org.example.dataprocessor.enums.AnalysisType;
 import org.example.dataprocessor.enums.CleaningType;
 import org.example.dataprocessor.enums.OutputType;
+import org.example.dataprocessor.output.OutputFactory;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -38,7 +41,10 @@ public class DataProcessorService {
         // 3) Output according to outputType (console or target/result.txt).
         // 4) Return the numeric result.
 
-        throw new UnsupportedOperationException("Student must implement process(...)");
+        List<Integer> cleanedData = CleaningFactory.getCleaningByType(cleaningType).clean(data);
+        double analyzedValue = AnalysisFactory.getAnalysisByType(analysisType).analyze(cleanedData);
+        OutputFactory.getOutputByType(outputType).output(analyzedValue);
+        return analyzedValue;
     }
 }
 

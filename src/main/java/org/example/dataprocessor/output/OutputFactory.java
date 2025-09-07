@@ -2,7 +2,7 @@ package org.example.dataprocessor.output;
 import org.example.dataprocessor.enums.OutputType;
 
 public class OutputFactory {
-    public static IOutputType createOutputType(OutputType outputType) {
+    public static IOutputType getOutputByType(OutputType outputType) {
         if (outputType == OutputType.CONSOLE) {
             return new ConsoleOutput();
         }

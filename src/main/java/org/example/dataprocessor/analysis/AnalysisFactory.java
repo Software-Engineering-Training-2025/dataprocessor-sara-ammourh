@@ -2,7 +2,7 @@ package org.example.dataprocessor.analysis;
 import org.example.dataprocessor.enums.AnalysisType;
 
 public class AnalysisFactory {
-    public static IAnalysisType createAnalysisType(AnalysisType analysisType) {
+    public static IAnalysisType getAnalysisByType(AnalysisType analysisType) {
         if (analysisType == AnalysisType.MEAN) {
             return new MeanAnalysis();
         }

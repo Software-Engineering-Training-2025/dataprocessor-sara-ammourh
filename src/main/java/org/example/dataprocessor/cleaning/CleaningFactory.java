@@ -2,7 +2,7 @@ package org.example.dataprocessor.cleaning;
 import org.example.dataprocessor.enums.CleaningType;
 
 public class CleaningFactory {
-    public static ICleaningType createCleaningType(CleaningType cleaningType) {
+    public static ICleaningType getCleaningByType(CleaningType cleaningType) {
         if (cleaningType == CleaningType.REMOVE_NEGATIVES) {
             return new RemoveNegativesCleaning();
         }
